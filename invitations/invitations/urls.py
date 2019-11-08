@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('landing.urls')),
-    path('admin/', admin.site.urls),
+    path('treecloud-admin/', admin.site.urls),
 ]

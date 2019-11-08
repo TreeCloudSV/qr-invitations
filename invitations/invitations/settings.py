@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'landing',
+    'landing.apps.LandingConfig',
+    'qr_code',
 ]
 
 MIDDLEWARE = [
