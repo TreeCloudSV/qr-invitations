@@ -2,6 +2,10 @@ from django.shortcuts import render
 from landing.models import Participante, Asistente
 from django.contrib.admin.views.decorators import staff_member_required
 
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+import os
+
 # Create your views here.
 def index(request):
     context = {
@@ -13,6 +17,9 @@ def index(request):
 
 @staff_member_required
 def validate(request, codigo_participante):
+
+
+
 
     asistente = None
     errors = None
@@ -29,5 +36,16 @@ def validate(request, codigo_participante):
         'asistente': asistente,
         'errors': errors
     }
+
+
+
+
+
+
+
+
+
+
+
     return render(request, 'landing/validate.html',context)
 
