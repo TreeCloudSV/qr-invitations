@@ -1,8 +1,13 @@
 from django.db import models
+import os
+from binascii import hexlify
+
+def createHash():
+    return hexlify(os.urandom(5)).decode('ascii')
 
 # Create your models here.
 class Participante(models.Model):
-    codigo_participante = models.CharField(max_length=255, unique=True, verbose_name="Código de participante")
+    codigo_participante = models.TextField(default=createHash, unique=True, verbose_name="Código de participante")
     nombre = models.CharField(max_length=255, verbose_name="Nombre del participante")
     empresa = models.CharField(max_length=255, verbose_name="Empresa (Razón social)")
     cargo = models.CharField(max_length=100, verbose_name="Cargo")
@@ -20,3 +25,16 @@ class Participante(models.Model):
     class Meta:
         verbose_name = 'Participante'
         verbose_name_plural = 'Participantes'
+
+    
+class Asistente(models.Model):
+    registered_at = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
+    participante = models.OneToOneField(Participante, verbose_name="participante", on_delete=models.DO_NOTHING, unique=True)
+    
+    def __str__(self):
+        return self.participante.nombre
+    
+
+    class Meta:
+        verbose_name = 'Asistente'
+        verbose_name_plural = 'Asistentes'
