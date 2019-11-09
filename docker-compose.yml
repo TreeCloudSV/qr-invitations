@@ -30,7 +30,7 @@ services:
       - bccelsalvador
     environment:
       POSTGRES_DB: invitation-qr
-      POSTGRES_USER: postg
+      POSTGRES_USER: postgres
 
 networks:
   bccelsalvador:
