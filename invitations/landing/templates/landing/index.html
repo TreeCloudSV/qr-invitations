@@ -1,13 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load qr_code %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
-</head>
-<body>
-    {% qr_from_text "https://www.treecloud.co/register/AcYfwe57d" %}
-</body>
-</html>
+{% extends 'landing/base.html' %}
+{% block title %}Registro{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5 mb-3">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-background py-4 px-4">
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Nombre *</label>
+                        <div class="input-group">
+                            {{form.nombre}}
+                        </div>
+                        {{form.nombre.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Empresa (Razón social) *</label>
+                        <div class="input-group">
+                            {{form.empresa}}
+                        </div>
+                        {{form.empresa.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Cargo *</label>
+                        <div class="input-group">
+                            {{form.cargo}}
+                        </div>
+                        {{form.cargo.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">E-Mail *</label>
+                        <div class="input-group">
+                            {{form.email}}
+                        </div>
+                        {{form.email.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Teléfono</label>
+                        <div class="input-group">
+                            {{form.telefono}}
+                        </div>
+                        {{form.telefono.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Facturar a nombre de *</label>
+                        <div class="input-group">
+                            {{form.f_name}}
+                        </div>
+                        {{form.f_name.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">NIT No. *</label>
+                        <div class="input-group">
+                            {{form.nit}}
+                        </div>
+                        {{form.nit.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">NRC No.*</label>
+                        <div class="input-group">
+                            {{form.nrc}}
+                        </div>
+                        {{form.nrc.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Orden de compra (si aplica)</label>
+                        <div class="input-group">
+                            {{form.orden_compra}}
+                        </div>
+                        {{form.orden_compra.errors}}
+                    </div>
+                </div>
+                
+                ** Aquí va el captcha
+                <div class="form-group">
+                    <button class="btn btn-primary form-control" type="submit">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
