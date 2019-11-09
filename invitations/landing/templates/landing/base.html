@@ -10,45 +10,10 @@
 	</head>
 	<body class="bg-default">
 		<!-- Navegación -->
-		<nav class="navbar navbar-expand-lg navbar-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark navbar-bg py-3">
 			<div class="container">
-				<b><a class="navbar-brand" href="{% url 'index' %}">BCC El Salvador</a></b>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ned" aria-controls="ned" aria-expanded="false">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="ned">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'index' %}">Inicio</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="">Página</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="">Perfiles</a>
-						</li>
-					</ul>
-					<ul class="navbar-nav">
-						{% if not request.user.is_authenticated %}
-							<li class="nav-item">
-								<a class="nav-link" href="">Acceder</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="">Registrarse</a>
-							</li>
-						{% else %}
-							<li class="nav-item">
-								<a class="nav-link" href="">Mensajes</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="">Perfil</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="">Salir</a>
-							</li>
-						{% endif %}
-					</ul>
-				</div>
+				<img src="{% static 'landing/img/download.png' %}" width="160px" height="160px" />
+				<b><a class="navbar-brand" href="{% url 'index' %}"><p class="h1 title-font">CONSIDERACIONES SOBRE LA FACTURACIÓN<br>ELECTRÓNICA EN EL SALVADOR</p></a></b>
 			</div>
 		</nav>
 		<!-- Contenido -->

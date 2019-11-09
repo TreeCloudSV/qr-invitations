@@ -1,13 +1,12 @@
-from django.shortcuts import render
-from landing.models import Participante, Asistente
+from django.shortcuts import render, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django import forms
 from django.core.mail import send_mail
-from django.template.loader import render_to_string
+
+from landing.models import Participante, Asistente
 from .forms import RegistrarForm
-import os
 
 class RegisterView(CreateView):
     model = Participante
@@ -29,16 +28,12 @@ class RegisterView(CreateView):
         form.fields['orden_compra'].widget = forms.TextInput(attrs={'placeholder': "Orden de compra", 'class': "form-control-mod"})
         return form
 
-    def get_success_url(self):
-        return reverse_lazy('index') + "?register"
 
-# Create your views here.
-def index(request):
-    context = {
-        'data': Participante.objects.all()[0].codigo_participante
-    }
-    
-    return render(request, 'landing/index.html',context)
+def finish(request, codigo):
+    participante = get_object_or_404(Participante, codigo_participante=codigo)
+    return render(request, 'landing/finish.html', {
+        'participante': participante
+    })
 
 
 @staff_member_required
