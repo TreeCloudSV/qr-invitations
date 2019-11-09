@@ -1,8 +1,7 @@
 from django.urls import path
-from . import views
+from .views import RegisterView
 
-app_name = 'landing'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', RegisterView.as_view(), name='index'),
 ]
