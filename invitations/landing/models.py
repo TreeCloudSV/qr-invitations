@@ -19,6 +19,10 @@ class Participante(models.Model):
     orden_compra = models.CharField(max_length=255, verbose_name="Orden de compra No.", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
 
+    def get_absolute_url(self):
+        from django.urls import reverse_lazy
+        return reverse_lazy('finish', kwargs={'codigo': self.codigo_participante})
+
     def __str__(self):
         return  '%s (%s)' % (self.nombre, self.codigo_participante)
 
