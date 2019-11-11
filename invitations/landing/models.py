@@ -1,10 +1,9 @@
 import os
 import datetime
+from binascii import hexlify
 
 from django.db import models
 from django.utils import timezone
-
-from binascii import hexlify
 
 
 def createHash():
@@ -19,6 +18,8 @@ class Participante(models.Model):
     email = models.EmailField(unique=True, verbose_name="email")
     telefono = models.CharField(max_length=20, verbose_name="Número de teléfono", blank=True, null=True)
     f_name = models.CharField(max_length=255, verbose_name="Facturar a nombre de")
+    direccion = models.CharField(max_length=255, verbose_name="Dirección")
+    giro = models.CharField(max_length=255, verbose_name="Giro", blank=True, null=True)
     nit = models.CharField(max_length=17, verbose_name="NIT")
     nrc = models.CharField(max_length=10, verbose_name="NRC")
     orden_compra = models.CharField(max_length=255, verbose_name="Orden de compra No.", blank=True, null=True)
@@ -45,7 +46,6 @@ class Asistente(models.Model):
     
     def __str__(self):
         return self.participante.nombre
-    
 
     class Meta:
         verbose_name = 'Asistente'

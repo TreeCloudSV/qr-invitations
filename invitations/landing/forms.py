@@ -1,12 +1,13 @@
 from django import forms
 from .models import Participante
 
+
 class RegistrarForm(forms.ModelForm):
 
     class Meta:
         model = Participante
         fields = ['nombre', 'empresa', 'cargo', 'email', 'telefono',
-                  'f_name', 'nit', 'nrc', 'orden_compra']
+                  'f_name', 'direccion', 'giro', 'nit', 'nrc', 'orden_compra']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('DJANGO_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bccelsalvador.treecloud.co', '127.0.0.1']
+ALLOWED_HOSTS = ['bccelsalvador.treecloud.co', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'landing.apps.LandingConfig',
     'qr_code',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,7 @@ EMAIL_HOST_USER =os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD =os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_PORT =os.getenv("EMAIL_PORT")
 EMAIL_USE_TLS = True
+
+# ReCaptcha Keys
+RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")

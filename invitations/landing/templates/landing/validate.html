@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wapo</title>
-</head>
-<body>
-    {% if asistente %}
-      Ya validado papuh 7u7
-    {% endif %}
-
-    
-    {% if errors %}
-        {{errors}}
-    {% endif %}
-        
-
-</body>
-</html>
+{% extends "landing/base.html" %}
+{% block title %}Bienvenido{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-12 text-center grtx">BIENVENIDO {{ nombre|upper }}!</div>
+        <a href="#" class="register-button btn-danger align-self-center mt-4" style="text-decoration: none">REGRESAR</a>
+    </div>
+</div>
+{% endblock content %}
