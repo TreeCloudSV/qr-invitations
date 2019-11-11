@@ -1,6 +1,11 @@
-from django.db import models
 import os
+import datetime
+
+from django.db import models
+from django.utils import timezone
+
 from binascii import hexlify
+
 
 def createHash():
     return hexlify(os.urandom(5)).decode('ascii')
@@ -18,6 +23,9 @@ class Participante(models.Model):
     nrc = models.CharField(max_length=10, verbose_name="NRC")
     orden_compra = models.CharField(max_length=255, verbose_name="Orden de compra No.", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
+
+    def recently_created(self):
+        return self.created_at >= timezone.now() - datetime.timedelta(minutes=5)
 
     def get_absolute_url(self):
         from django.urls import reverse_lazy

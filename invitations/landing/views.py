@@ -1,17 +1,17 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-from django import forms
 from django.core.mail import send_mail
+from django import forms
 
 from landing.models import Participante, Asistente
 from .forms import RegistrarForm
 
+
 class RegisterView(CreateView):
     model = Participante
     form = RegistrarForm
-    template_name = 'landing/index.html'
     fields = ['nombre', 'empresa', 'cargo', 'email', 'telefono',
               'f_name', 'nit', 'nrc', 'orden_compra']
 
@@ -30,10 +30,16 @@ class RegisterView(CreateView):
 
 
 def finish(request, codigo):
-    participante = get_object_or_404(Participante, codigo_participante=codigo)
-    return render(request, 'landing/finish.html', {
-        'participante': participante
-    })
+    try:
+        participante = Participante.objects.get(codigo_participante=codigo)
+        if (participante.recently_created()):
+            return render(request, 'landing/finish.html', {
+                'participante': participante
+            })
+        else:
+            return redirect('index')
+    except:
+        return redirect('index')
 
 
 @staff_member_required
