@@ -34,11 +34,8 @@ class RegisterView(CreateView):
 
 # Create your views here.
 def index(request):
-    context = {
-        'data': Participante.objects.all()[0].codigo_participante
-    }
-    
-    return render(request, 'landing/index.html',context)
+
+    return render(request, 'landing/registered_assistance.html', {'participante': None})
 
 
 @staff_member_required
