@@ -5,10 +5,11 @@
 {% if participante %}
 <div class="container">
     <div class="row pt-5 justify-content-center">
-        <div class="mt-5 col-12 text-center grtx">GRACIAS POR TU REGISTRO!</div>
+        <div class="mt-5 col-12 text-center grtx">¡GRACIAS POR TU REGISTRO!</div>
+        <div class="col-12 text-center text-small">*Se le ha enviado una notificación a su correo electrónico</div>
         <div class="col-2 barra"><hr></div>
     </div>
-    <div class="row justify-content-center mt-5 pb-5">
+    <div id="invitation" class="row justify-content-center mt-5 pb-3">
         <div class="col-7 form-background py-4 text-center">
             <div class="lbl mt-2">NOMBRE DEL PARTICIPANTE</div>
             <div class="text-center field">{{participante.nombre}}</div>
@@ -32,7 +33,10 @@
                     <div class="fieldB">Salón Apaneca</div>
                 </div>
             </div>
-        </div>
+        </div>        
+    </div>
+    <div class="row text-center">
+        <div class="col-12 mb-5"><button onClick="printInvitation();" class="register-button btn-danger">DESCARGAR</button></div>
     </div>
 </div>    
 {% endif %}
