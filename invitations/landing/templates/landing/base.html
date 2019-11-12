@@ -1,25 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>{% block title %}{% endblock %}</title>
-		{% load static %}
-		<link href="{% static 'landing/css/main.css' %}" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	</head>
-	<body class="bg-default">
-		<!-- Navegación -->
-		<nav class="navbar navbar-expand-lg navbar-dark navbar-bg py-3">
-			<div class="container-fluid">
-				<b><a class="navbar-brand d-flex" href="{% url 'index' %}"><img src="{% static 'landing/img/download.png' %}" width="160px" height="160px" /><p class="h1 ml-3 title-font align-self-center">CONSIDERACIONES SOBRE LA FACTURACIÓN<br>ELECTRÓNICA EN EL SALVADOR</p></a></b>
-			</div>
-		</nav>
-		<!-- Contenido -->
-		{% block content %}{% endblock %}
-		<!-- Javascript -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	</body>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+	{% load static %}
+    <!-- Metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  <meta name="description" content="TreeCloud Technologies ">
+    <meta property="og:title" content="TreeCloud Technologies">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://treecloud.co/">
+    <meta property="og:description"
+        content="TreeCloud Technologies | AI-based solutions  for Businesses and Government">
+    <meta property="og:site_name" content="TreeCloud">
+ -->
+    <meta name="author" content="support@tree-cloud.com">
+    <!--     <meta name="keywords"
+        content="Artificial Intelligence, El Salvador , Inteligencia artificial el salvador, El Salvador AI, Inteligencia artificial el salvador, AI El Salvador, IA el Salvador, Machine Learning, Machine Learning El Salvador, Software,Software Development, AI Solutions, technology solutions, soluciones tecnológicas, Soluciones basadas en inteligencia artificial, Robotic, Robótica, Robótica El Salvador, Robotics El Salvador">
+    <meta name="og:keywords"
+        content="TreeCloud, TreeCloud El Salvador, Artificial Intelligence, El Salvador , Inteligencia artificial el salvador, El Salvador AI, Inteligencia artificial el salvador, AI El Salvador, IA el Salvador, Machine Learning, Machine Learning El Salvador, Software,Software Development, AI Solutions, technology solutions, soluciones tecnológicas, Soluciones basadas en inteligencia artificial, Robotic, Robótica, Robótica El Salvador, Robotics El Salvador">
+    <meta itemprop="name" content="TreeCloud Technologies">
+    <meta itemprop="description" content="TreeCloud Technologies | AI-based solutions  for Businesses and Government"> -->
+    <link rel="icon" href="{% static 'landing/images/favicon.ico' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'landing/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'landing/css/form-tax.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body lang="en">
+
+    <!-- Banner section -->
+    <div class="pager-sec banner-sec">
+        <div class="container">
+            <div class="pager-sec-details">
+                <div class="row">
+                    <div class=" d-flex align-items-center img-logo-banner">
+                        <img src="{% static 'landing/images/BCC logo.png' %}" alt="BBC logo" class="img-fluid">
+                    </div>
+                    <div class="header-border-left-text">
+                        <h2>CONSIDERACIONES SOBRE LA FACTURACIÓN ELECTRONICA EN EL SALVADOR.</h2>
+                    </div>
+                </div>
+            </div>
+            <!--pager-sec-details end-->
+        </div>
+    </div>
+    <!--pager-sec end-->
+
+    <!-- form-section -->
+    <div class="our-services form-tax-section">
+        {% block content %}{% endblock content %}
+    </div>
+    <!-- form-section -->
+
+    <!-- logos section -->
+    <div class="logos-section">
+        <div class="container-logos">
+            <img alt="logos banner" src="{% static 'landing/images/footer_logos.png' %}" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- logos section -->
+    <!-- Footer section -->
+    <footer class="hp2 vabt">
+        <div class="t_footer">
+            <div class="container container container-footer">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 col-footer-links">
+                        <ul class="t-links wow fadeInUp" data-wow-delay=".3s">
+                            <li><a href="under-manteinance.html" title="">Términos y Condiciones</a></li>
+                            <li><a href="under-manteinance.html" title="">Política de Privacidad</a></li>
+                            <li><a href="under-manteinance.html" title="">Contacto</a></li>
+                        </ul>
+                        <!--t-logo end-->
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 col-img-footer">
+                        <ul class="socio-links wow fadeInUp t-links" data-wow-delay=".4s">
+                            <li>
+                                <a href="https://www.facebook.com/TreeCloudsv/?ref=br_rs" title="">@BCC EL
+                                    SALVADOR </a>
+                            </li>
+                        </ul>
+                        <div class="img-footer-container" style="background-color: #b11f2d;">
+                            <img alt="BBC el salvador logo" src="{% static 'landing/images/bcc_logo_130x100.png' %}">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer end-->
+
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-mousewheel.js"></script>
+    <script type="text/javascript" src="js/popper.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/isotope.js"></script>
+    <script type="text/javascript" src="js/html5lightbox.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
 </html>

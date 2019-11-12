@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
-from django.template.loader import render_to_string
+from django.template.loader import get_template
 from django import forms
 from django.core.mail import send_mail
 from captcha.fields import ReCaptchaField
@@ -40,14 +40,14 @@ class RegisterView(CreateView):
     def form_valid(self, form):
         participante = form.save(commit=False)
         recipient_list = [participante.email]
-        msg_plain = '¡Gracias por registrarse! Aquí está su código de registro'
-        msg_html = render_to_string('landing/finish.html', {'participante': participante})
+        msg_plain = '¡Gracias por registrarse! Puedes acceder a tu registro a través de este enlace:'
+        msg_html = get_template('landing/mail.html')
         send_mail(
             'BCC El Salvador',
             msg_plain,
             os.getenv("EMAIL_HOST_USER"),
             recipient_list,
-            html_message=msg_html,
+            html_message=msg_html.render({'participante': participante}),
         )
         form.save()
         return super(RegisterView, self).form_valid(form)
@@ -56,12 +56,9 @@ class RegisterView(CreateView):
 def finish(request, codigo):
     try:
         participante = Participante.objects.get(codigo_participante=codigo)
-        if (participante.recently_created()):
-            return render(request, 'landing/finish.html', {
-                'participante': participante
-            })
-        else:
-            return redirect('index')
+        return render(request, 'landing/finish.html', {
+            'participante': participante
+        })
     except:
         return redirect('index')
 
@@ -80,3 +77,7 @@ def validate(request, codigo_participante):
         'errors': errors
     }
     return render(request, 'landing/validate.html',context)
+
+def prueba(request):
+    participante = Participante.objects.get(codigo_participante='09c76072be')
+    return render(request, 'landing/mail.html', {'participante': participante})

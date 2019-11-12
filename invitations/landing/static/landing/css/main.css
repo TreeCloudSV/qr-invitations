@@ -8,7 +8,7 @@
     background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.form-background { background: #f5f3f4; color: #1c1549; }
+.form-background { background: #f5f3f4; color: #1c1549; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); }
 
 .form-control-mod {
     display: block;
@@ -30,7 +30,7 @@
 
 .navbar-bg {
     background-color: #111;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);;
 }
 
 .qrcode svg { border: 2px solid #b11f2d; }
@@ -43,6 +43,7 @@
 .barra-fin { border: 2px solid #1c1549; }
 
 .register-button {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);;
     display: inline-block;
     font-weight: 400;
     color: #212529;
@@ -63,4 +64,25 @@
     font-size: 1rem;
     line-height: 1.5;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.t-links {
+	float: left;
+	width: 100%;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.t-links li {
+	display: inline-block;
+	margin-right: 20px;
+	margin-top: auto;
+	margin-bottom: auto;
+	align-items: center;
+}
+
+.t-links li a {
+	display: inline-block;
+	color: #ffffff;
+	font-size: 15px;
 }
