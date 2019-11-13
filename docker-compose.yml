@@ -7,8 +7,10 @@ services:
     build:
       context: ./invitations/
       dockerfile: Dockerfile
+    volumes:
+      - app:/app
     ports:
-      - "1010:8000"
+      - "8000:8000"
     networks:
       - bccelsalvador
     depends_on:
@@ -19,6 +21,20 @@ services:
       env_file: /run/secrets/bccelsalvador
     secrets:
       - bccelsalvador
+
+  nginx:
+      image: treecloud/nginx
+      restart: always
+      build: ./nginx/
+      volumes: 
+      - logs:/app/logs
+      - app:/app/invitations/static
+      ports: 
+        - "1010:80"
+      depends_on:
+        - backend
+      networks:
+        - bccelsalvador
 
   db:
     image: postgres:11
@@ -38,6 +54,10 @@ networks:
 
 volumes:
   data_bcc:
+    driver: local
+  app:
+    driver: local
+  logs:
     driver: local
 
 secrets:
