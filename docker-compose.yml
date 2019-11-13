@@ -10,7 +10,7 @@ services:
     volumes:
       - app:/app
     ports:
-      - "8000:8000"
+      - "1010:8000"
     networks:
       - bccelsalvador
     depends_on:
@@ -30,7 +30,7 @@ services:
       - logs:/app/logs
       - app:/app/invitations/static
       ports: 
-        - "1010:80"
+        - "3030:80"
       depends_on:
         - backend
       networks:
