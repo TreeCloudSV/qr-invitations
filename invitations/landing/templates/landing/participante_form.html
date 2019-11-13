@@ -1,0 +1,107 @@
+{% extends 'landing/base.html' %}
+{% block title %}Registro{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row pt-5 justify-content-center">
+        <div class="mt-3 col-12 text-center grtx">LLENA EL SIGUIENTE FORMULARIO</div>
+        <div class="col-2 barra"><hr></div>
+    </div>
+    <div class="row justify-content-center mt-5 pb-5">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-background py-4 px-4">
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Nombre *</label>
+                        <div class="input-group">
+                            {{form.nombre}}
+                        </div>
+                        {{form.nombre.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Empresa (Razón social) *</label>
+                        <div class="input-group">
+                            {{form.empresa}}
+                        </div>
+                        {{form.empresa.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Cargo *</label>
+                        <div class="input-group">
+                            {{form.cargo}}
+                        </div>
+                        {{form.cargo.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">E-Mail *</label>
+                        <div class="input-group">
+                            {{form.email}}
+                        </div>
+                        {{form.email.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Teléfono</label>
+                        <div class="input-group">
+                            {{form.telefono}}
+                        </div>
+                        {{form.telefono.errors}}
+                    </div>
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-12 text-center" style="font-size: 1.2rem">PARA EFECTOS DE FACTURACIÓN, FAVOR COMPLETAR LOS SIGUIENTES DATOS:</div>
+                        <div class="col-3"><hr style="border: 3px solid #b11f2d"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Facturar a nombre de *</label>
+                        <div class="input-group">
+                            {{form.f_name}}
+                        </div>
+                        {{form.f_name.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Dirección *</label>
+                        <div class="input-group">
+                            {{form.direccion}}
+                        </div>
+                        {{form.direccion.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Giro</label>
+                        <div class="input-group">
+                            {{form.giro}}
+                        </div>
+                        {{form.giro.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">NIT No. *</label>
+                        <div class="input-group">
+                            {{form.nit}}
+                        </div>
+                        {{form.nit.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">NRC No.*</label>
+                        <div class="input-group">
+                            {{form.nrc}}
+                        </div>
+                        {{form.nrc.errors}}
+                    </div>
+                    <div class="form-group">
+                        <label class="ml-2 text-small">Orden de compra (si aplica)</label>
+                        <div class="input-group">
+                            {{form.orden_compra}}
+                        </div>
+                        {{form.orden_compra.errors}}
+                    </div>
+                </div>
+                <div class="mt-3 d-flex justify-content-between">
+                    <div class="captcha">
+                        {{form.captcha}}
+                        {{form.captcha.errors}}
+                    </div>
+                    <button class="register-button btn-danger align-self-center" type="submit">ENVIAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

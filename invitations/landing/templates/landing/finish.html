@@ -1,0 +1,39 @@
+{% extends "landing/base.html" %}
+{% block title %}Finalizado!{% endblock title %}
+{% block content %}
+{% load qr_code %}
+{% if participante %}
+<div class="container">
+    <div class="row pt-5 justify-content-center">
+        <div class="mt-5 col-12 text-center grtx">GRACIAS POR TU REGISTRO!</div>
+        <div class="col-2 barra"><hr></div>
+    </div>
+    <div class="row justify-content-center mt-5 pb-5">
+        <div class="col-7 form-background py-4 text-center">
+            <div class="lbl mt-2">NOMBRE DEL PARTICIPANTE</div>
+            <div class="text-center field">{{participante.nombre}}</div>
+            <div class="qrcode my-3">{% qr_from_text "https://bccelsalvador.treecloud.co/validate/"|add:participante.codigo_participante|add:"/" size="20" %}</div>
+            <div class="lbl mt-2">EMPRESA</div>
+            <div class="text-center field">{{participante.empresa}}</div>
+            <div class="lbl mt-2">CARGO</div>
+            <div class="text-center field">{{participante.cargo}}</div>
+            <div class="lbl mt-2">CORREO ELECTRÓNICO</div>
+            <div class="text-center field">{{participante.email}}</div>
+            <div class="lbl mt-2">TELÉFONO DE CONTACTO</div>
+            <div class="text-center field">{{participante.telefono}}</div>
+            <hr class="barra-fin mx-5 mt-5">
+            <div class="row">
+                <div class="col-6 text-right">
+                    <div class="lblB mt-2">20 NOVIEMBRE</div>
+                    <div class="fieldB">8AM - 12:30 PM</div>
+                </div>
+                <div class="col-6 text-left">
+                    <div class="lblB mt-2">HOTEL CROWNE PLAZA</div>
+                    <div class="fieldB">Salón Apaneca</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+{% endif %}
+{% endblock content %}

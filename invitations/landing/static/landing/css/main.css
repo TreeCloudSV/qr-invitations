@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+
+* { font-family: 'Roboto', sans-serif; }
+
+.bg-default {
+    background: #CC95C0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form-background { background: #f5f3f4; color: #1c1549; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); }
+
+.form-control-mod {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1c1549;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid#ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.text-small { font-size: 0.7em; font-weight: bold; }
+.errorlist { color: #b11f2d; }
+
+.navbar-bg {
+    background-color: #111;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);;
+}
+
+.qrcode svg { border: 2px solid #b11f2d; }
+.barra hr { border: 4px solid #b11f2d; }
+.grtx { color: #1c1549; font-size: 2rem; }
+.lbl { color: #b11f2d; font-size: 0.85rem; font-weight: bold; }
+.field { color: #1c1549; font-size: 1.5rem; }
+.lblB { color: #1c1549; font-size: 0.85rem; font-weight: bold; }
+.fieldB { color: #b11f2d; font-size: 1.5rem; }
+.barra-fin { border: 2px solid #1c1549; }
+
+.register-button {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid 
+    transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.t-links {
+	float: left;
+	width: 100%;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.t-links li {
+	display: inline-block;
+	margin-right: 20px;
+	margin-top: auto;
+	margin-bottom: auto;
+	align-items: center;
+}
+
+.t-links li a {
+	display: inline-block;
+	color: #ffffff;
+	font-size: 15px;
+}

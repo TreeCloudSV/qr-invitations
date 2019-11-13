@@ -1,0 +1,10 @@
+{% extends "landing/base.html" %}
+{% block title %}Bienvenido{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-12 text-center grtx">BIENVENIDO {{ nombre|upper }}!</div>
+        <a href="#" class="register-button btn-danger align-self-center mt-4" style="text-decoration: none">REGRESAR</a>
+    </div>
+</div>
+{% endblock content %}

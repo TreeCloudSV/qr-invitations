@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+        <!-- Metadata -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--  <meta name="description" content="TreeCloud Technologies ">
+        <meta property="og:title" content="TreeCloud Technologies">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://treecloud.co/">
+        <meta property="og:description"
+            content="TreeCloud Technologies | AI-based solutions  for Businesses and Government">
+        <meta property="og:site_name" content="TreeCloud">
+ -->
+        <meta name="author" content="support@tree-cloud.com">
+<!--    <meta name="keywords"
+        content="Artificial Intelligence, El Salvador , Inteligencia artificial el salvador, El Salvador AI, Inteligencia artificial el salvador, AI El Salvador, IA el Salvador, Machine Learning, Machine Learning El Salvador, Software,Software Development, AI Solutions, technology solutions, soluciones tecnológicas, Soluciones basadas en inteligencia artificial, Robotic, Robótica, Robótica El Salvador, Robotics El Salvador">
+        <meta name="og:keywords"
+        content="TreeCloud, TreeCloud El Salvador, Artificial Intelligence, El Salvador , Inteligencia artificial el salvador, El Salvador AI, Inteligencia artificial el salvador, AI El Salvador, IA el Salvador, Machine Learning, Machine Learning El Salvador, Software,Software Development, AI Solutions, technology solutions, soluciones tecnológicas, Soluciones basadas en inteligencia artificial, Robotic, Robótica, Robótica El Salvador, Robotics El Salvador">
+        <meta itemprop="name" content="TreeCloud Technologies">
+        <meta itemprop="description" content="TreeCloud Technologies | AI-based solutions  for Businesses and Government"> -->
+		<title>{% block title %}{% endblock %}</title>
+		{% load static %}
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+            * { font-family: 'Roboto', sans-serif; }
+        </style>
+		<link href="https://bccelsalvador.treecloud.co{% static 'landing/css/main.css' %}" rel="stylesheet">
+	</head>
+	<body style="font-family: 'Roboto', sans-serif; margin: 0">		<!-- Contenido -->
+		<div style="display: inline-flex; background: #1c1549; width: 100%">
+            <div style="background-color: #b11f2d; padding: 8px; width: 128px; height: 100%px"><img src="https://bccelsalvador.treecloud.co{% static 'landing/images/BCC logo.png' %}" alt="BBC logo" class="img-fluid"
+            style="width: 120px; height: 120px"
+            ></div>
+            <div style="width: 50%; margin-left: 2rem; align-self: center"><span style="color: white; font-size: 1.2rem">CONSIDERACIONES SOBRE LA FACTURACIÓN ELECTRONICA EN EL SALVADOR.</span></div>
+            <div style="width: 30%; margin-left: 2rem; margin-right: 2rem; align-self: center; text-align: center"><span style="color: white; font-size: 1rem">ENTRADA DEL EVENTO</span></div>
+        </div>
+        <div style="text-align: center;">
+            <div>
+                <div style="color: #1c1549; margin-top: 60px">
+                    <img src="https://bccelsalvador.treecloud.co{% static 'landing/images/correo.png' %}" width="100px">
+                    <div style="color: #1c1549; font-size: 1.5rem; margin-top: 20px">ENTRADA DEL EVENTO</div>
+                    {% load qr_code %}
+                    <div style="margin-top: 20px; margin-bottom: 20px"><img src="https://qrcode.tec-it.com/API/QRCode?data=https://bccelsalvador.treecloud.co/validate/{{participante.codigo_participante}}/" width="250px"></div>
+                    <div style="color: #1c1549; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px">DATOS DEL PARTICIPANTE:</div>
+                    <table align="center" style="">
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;">NOMBRE</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.nombre}}</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;">EMPRESA</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.empresa}}</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;">CARGO</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.cargo}}</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;">CORREO ELECTRÓNICO</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.email}}</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;">TELÉFONO</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.telefono}}</span></td>
+                        </tr>
+                        <tr><td colspan="2" style="text-align: center"><hr style="border: 1px solid #b11f2d; width: 80px"></td></tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;">NIT NO.</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.nit}}</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;">NRC NO.</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.nrc}}</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 1rem"><span style="color: #b11f2d; font-size: 1.2rem;"># ORDEN DE COMPRA</span></td>
+                            <td style="text-align: left; padding-left: 1rem"><span style="color: #1c1549; font-size: 1.2rem;">{{participante.orden_compra}}</span></td>
+                        </tr>
+                    </table>
+                    <hr style="border: 0px; margin-top: 21px; margin-bottom: 21px">
+                    <div style="display: inline-flex; align-items: end">
+                        <div style="margin-right: 30px">
+                            <div style="color: #1c1549; font-size: 0.85rem; font-weight: bold;">20 NOVIEMBRE</div>
+                            <div style="color: #b11f2d; font-size: 1.2rem;">8AM - 12:30 PM</div>
+                        </div>
+                        <div style="margin-left: 30px">
+                            <div style="color: #1c1549; font-size: 0.85rem; font-weight: bold;">HOTEL<br>CROWNE PLAZA</div>
+                            <div style="color: #b11f2d; font-size: 1.2rem;">Salón Apaneca</div>
+                        </div>
+                    </div>
+                </div>
+                <img src="https://bccelsalvador.treecloud.co{% static 'landing/images/bcc_logo_130x100.png' %}" style="margin-top: 20px;">
+                <p style="margin-bottom: 30px; color: #c8c8c8">BCC@2019 TODOS LOS DERECHOS RESERVADOS</p>
+            </div>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+version: '3.6'
+services:
+
+  backend:
+    image: treecloud/bccelsalvador:latest
+    command: python manage.py runserver 0.0.0.0:8000
+    build:
+      context: ./invitations/
+      dockerfile: Dockerfile
+    ports:
+      - "1010:8000"
+    networks:
+      - bccelsalvador
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      env_file: /run/secrets/bccelsalvador
+    secrets:
+      - bccelsalvador
+
+  db:
+    image: postgres:11
+    volumes:
+    - data_bcc:/var/lib/postgresql/data
+    ports:
+    - 6543:5432
+    networks:
+      - bccelsalvador
+    environment:
+      POSTGRES_DB: invitation-qr
+      POSTGRES_USER: postgres
+
+networks:
+  bccelsalvador:
+    driver: overlay
+
+volumes:
+  data_bcc:
+    driver: local
+
+secrets:
+  bccelsalvador:
+    external: true
+  bcc-postgres:
+    external: true
