@@ -23,6 +23,7 @@
 		"clean-cache": "^1.0.2",
 		"is-url": "^1.2.4",
 		"ngrok": "^3.2.5",
+		"reload-css": "^1.0.2"
 	},
 	"devDependencies": {
 		"clean-webpack-plugin": "^0.1.19",
