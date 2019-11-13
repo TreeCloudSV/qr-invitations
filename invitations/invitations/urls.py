@@ -20,3 +20,8 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('treecloud-admin/', admin.site.urls),
 ]
+
+# Custom admin
+admin.site.site_header = "BCC El Salvador"
+admin.site.index_title = "Panel de administración"
+admin.site.site_title = "BCC El Salvador"
