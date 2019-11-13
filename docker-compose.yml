@@ -8,7 +8,7 @@ services:
       context: ./invitations/
       dockerfile: Dockerfile
     ports:
-      - "1010:8000"
+      - "8000:8000"
     networks:
       - bccelsalvador
     depends_on:
@@ -19,6 +19,8 @@ services:
       env_file: /run/secrets/bccelsalvador
     secrets:
       - bccelsalvador
+    volumes:
+      - static:/app/static
 
   db:
     image: postgres:11
@@ -32,6 +34,19 @@ services:
       POSTGRES_DB: invitation-qr
       POSTGRES_USER: postgres
 
+  web:
+    image: teecloud/web:latest
+    restart: always
+    build: ./nginx/
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d
+      - ./logs/:/app/logs
+      - static:/app/static
+    ports:
+      - "5050:80"
+    networks:
+      - bccelsalvador
+
 networks:
   bccelsalvador:
     driver: overlay
@@ -39,6 +54,7 @@ networks:
 volumes:
   data_bcc:
     driver: local
+  static:
 
 secrets:
   bccelsalvador:
